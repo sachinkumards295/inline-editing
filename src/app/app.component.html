@@ -1,0 +1,94 @@
+<div class="row">
+     <div class="col-12">
+       <button class="btn w-100 btn-primary my-4" (click)="Add()">Add</button>
+     </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+
+
+  <table class="table table-bordered">
+    <thead>
+  
+      <tr>
+        <th>sr No</th>
+        <th>Name</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>website</th>
+        <th>Action</th>
+      </tr>
+   
+    </thead>
+    <tbody >
+  
+      <tr  *ngFor="let item of userData; let srno = index">
+        <td> {{srno + 1}}</td>
+        <td> 
+          <div *ngIf="item.isEdit">
+            <input type="text" [ngModel]="item.name">
+          </div>
+          <div *ngIf="!item.isEdit">
+            {{item.name}}
+          </div>
+ 
+        
+        </td>
+        <td>
+          <div *ngIf="item.isEdit">
+            <input type="text" [ngModel]="item.username">
+          </div>
+          <div *ngIf="!item.isEdit">
+            {{item.username}}
+          </div>
+        
+          </td>
+        <td>
+          <div *ngIf="item.isEdit">
+            <input type="text" [ngModel]="item.email">
+          </div>
+          <div *ngIf="!item.isEdit">
+            {{item.email}}
+          </div>
+          </td>
+        <td>
+          <div *ngIf="item.isEdit">
+            <input type="text" [ngModel]="item.phone">
+          </div>
+          <div *ngIf="!item.isEdit">
+            {{item.phone}}
+          </div>
+          
+          </td>
+        <td>
+          <div *ngIf="item.isEdit">
+            <input type="text" [ngModel]="item.website">
+          </div>
+          <div *ngIf="!item.isEdit">
+            {{item.website}}
+          </div>
+        </td>
+        <td class="text-center">
+          <div *ngIf="!item.isEdit">
+            <i class="fa fa-pencil-square-o px-2" aria-hidden="true" (click)="edit(item)"></i>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </div>
+          <div *ngIf="item.isEdit">
+            <i class="fa fa-floppy-o px-2" aria-hidden="true" (click)="update(item)"></i>
+            <i class="fa fa-ban" aria-hidden="true" (click)="cancel(item)"></i>
+          </div>
+         
+         
+        </td>
+      </tr>
+  
+   
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
